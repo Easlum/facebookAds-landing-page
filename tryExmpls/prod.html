@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Imperial Appliances Haven</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="prod.css">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="container nav">
+      <div class="logo">Imperial Appliances Haven</div>
+      <a href="#products" class="btn btn-primary">Shop Now</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="section hero">
+    <div class="container">
+      <h1 class="hero-title">Premium Home Appliances</h1>
+      <p class="hero-text">Quality • Durability • Style</p>
+      <a href="#products" class="btn btn-accent">Browse Products</a>
+    </div>
+  </section>
+
+  <!-- PRODUCTS -->
+  <section id="products" class="section">
+    <div class="container">
+      <h2 class="section-title">Featured Products</h2>
+
+      <div class="products-grid">
+
+        <div class="product-card">
+          <img src="images/blender1.jpg" alt="Hotpot Set">
+          <h3>Premium Hotpot Set</h3>
+          <p>High-quality insulated food warmers.</p>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/blender2.jpg" alt="Ceramic Soup Pots">
+          <h3>Ceramic Soup Pots</h3>
+          <p>Elegant and durable ceramic cookware.</p>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+
+        <div class="product-card">
+          <img src="images/blender3.jpg" alt="Kitchen Blender">
+          <h3>Multi-Speed Blender</h3>
+          <p>Powerful blending for smoothies & sauces.</p>
+          <button class="btn btn-primary buy-btn">Buy Now</button>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Why Choose Us</h2>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <h4>Fast Delivery</h4>
+          <p>Quick delivery across Kenya.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Premium Quality</h4>
+          <p>Carefully selected high-end appliances.</p>
+        </div>
+
+        <div class="feature-card">
+          <h4>Affordable Prices</h4>
+          <p>Luxury products at fair prices.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Imperial Appliances Haven. All Rights Reserved.</p>
+  </footer>
+
+<!-- ================= JAVASCRIPT ================= -->
+  <script>
+
+    function scrollToOrder() {
+      document.getElementById("order-section").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    document.getElementById("orderForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      const county = document.getElementById("county").value;
+      const town = document.getElementById("town").value;
+      const product = document.getElementById("product").value;
+
+      const message =
+        "NEW ORDER:%0A%0A" +
+        "Product: " + product + "%0A%0A" +
+        "Customer Name: " + name + "%0A" +
+        "Phone: " + phone + "%0A" +
+        "Location: " + town + ", " + county + "%0A%0A" +
+        "Pay on Delivery";
+
+      const whatsappNumber = "254707252299"; // Your WhatsApp Number
+
+      const whatsappURL =
+        "https://wa.me/" + whatsappNumber + "?text=" + message;
+
+      window.open(whatsappURL, "_blank");
+    });
+
+  </script>
+  
+</body>
+</html>
+
+   

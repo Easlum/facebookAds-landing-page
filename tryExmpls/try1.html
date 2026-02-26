@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Premium 3-in-1 Ceramic Soup Pots</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="indexStyles.css">
+</head>
+<body>
+
+<!-- HERO SECTION -->
+<section class="hero">
+    <div class="container">
+
+        <h1>This Festive Season, Blend Your Way Into a Healthier, Easier & Happier Kitchen!</h1>
+
+        <p class="subheadline">
+            Enjoy restaurant-smooth smoothies, faster meal prep, and zero kitchen stress —
+            with powerful, long-lasting blenders trusted by Kenyan families.
+        </p>
+
+        <div class="badge">🇩🇪 German Engineered Performance</div>
+
+        <div class="hero-media">
+            <img src="images/blender1.jpg" alt="Blender 1" class="hero-image">
+            <p class="img-caption">Blend smiles into every meal</p>
+        </div>
+
+        <div class="products">
+
+            <div class="product-card hot">
+                <h2>HOT DEAL 🔥</h2>
+                <h3>Red Pro – 4500W</h3>
+                <img src="images/blender2.jpg" alt="Red Pro" class="product-image">
+                <p class="img-caption">Power for busy kitchens</p>
+                <p class="old-price">Was KES 7,000</p>
+                <p class="price">Now KES 3,999</p>
+                <button class="cta-btn" onclick="scrollToForm('Red Pro – 4500W')">Order Now</button>
+            </div>
+
+            <div class="product-card premium">
+                <h2>PREMIUM 💎</h2>
+                <h3>Black Elite – 8500W</h3>
+                <img src="images/blender3.jpg" alt="Black Elite" class="product-image">
+                <p class="img-caption">Professional results at home</p>
+                <p class="price">KES 5,000</p>
+                <button class="cta-btn" onclick="scrollToForm('Black Elite – 8500W')">Order Now</button>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- FEATURES SECTION -->
+<section class="features">
+    <div class="container">
+        <h2>Features</h2>
+        <p class="features-intro">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis at velit maximus, molestie est a, tempor magna.</p>
+
+        <div class="features-list">
+            <div class="feature">
+                <h3>Durable Build</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </div>
+            <div class="feature">
+                <h3>Easy Clean</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </div>
+            <div class="feature">
+                <h3>Energy Efficient</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ORDER FORM SECTION -->
+<section class="order-section">
+    <div class="container">
+        <h2>Complete Your Order</h2>
+        <p class="form-subtext">Fast delivery across Kenya. Your order will be sent via WhatsApp.</p>
+
+        <form id="orderForm" class="order-form">
+            
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required placeholder="Your full name">
+            </div>
+
+            <div class="form-group">
+                <label for="phone">Phone Number *</label>
+                <input type="tel" id="phone" name="phone" required placeholder="0700 000 000">
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="county">County *</label>
+                    <input type="text" id="county" name="county" required placeholder="e.g. Nairobi">
+                </div>
+                <div class="form-group">
+                    <label for="town">Town/Area *</label>
+                    <input type="text" id="town" name="town" required placeholder="e.g. Westlands">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="quantity">Quantity *</label>
+                <input type="number" id="quantity" name="quantity" required min="1" placeholder="1" value="1">
+            </div>
+
+            <div class="form-group">
+                <label for="product">Product *</label>
+                <input type="text" id="product" name="product" readonly placeholder="Select product above" style="background-color: #f0f0f0; cursor: not-allowed;">
+            </div>
+
+            <button type="submit" class="submit-btn">Send Order</button>
+        </form>
+
+        <p class="form-note">💬 Your order details will open WhatsApp. Confirm and send to complete your order.</p>
+    </div>
+</section>
+
+
+<script>
+// Scroll to form and set product
+function scrollToForm(productName) {
+    document.getElementById("product").value = productName;
+    document.querySelector(".order-section").scrollIntoView({ behavior: "smooth" });
+    document.getElementById("name").focus();
+}
+
+// Form submission and WhatsApp integration
+document.getElementById("orderForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById("name").value.trim();
+    const phone = document.getElementById("phone").value.trim();
+    const county = document.getElementById("county").value.trim();
+    const town = document.getElementById("town").value.trim();
+    const quantity = document.getElementById("quantity").value;
+    const product = document.getElementById("product").value;
+
+    // Validate required fields
+    if (!name || !phone || !county || !town || !quantity || !product) {
+        alert("Please fill in all fields and select a product.");
+        return;
+    }
+
+    // Construct WhatsApp message
+    const message = `Hello! I'd like to order:%0A%0AName: ${encodeURIComponent(name)}%0APhone: ${encodeURIComponent(phone)}%0ACounty: ${encodeURIComponent(county)}%0ATown: ${encodeURIComponent(town)}%0AProduct: ${encodeURIComponent(product)}%0AQuantity: ${encodeURIComponent(quantity)}`;
+
+    // Open WhatsApp with pre-filled message
+    const whatsappURL = `https://wa.me/254707252299?text=${message}`;
+    window.open(whatsappURL, '_blank');
+
+    // Reset form after submission
+    document.getElementById("orderForm").reset();
+});
+</script>
+
+</body>
+</html>
